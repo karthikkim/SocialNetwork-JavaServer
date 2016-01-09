@@ -8,9 +8,9 @@ Welcome to the SocialNetwork-JavaServer wiki!
 
 ***
 
-Please note that this repository contains **ONLY **server sided code.    
+Please note that this repository contains **ONLY ** server sided code.    
 Server side is implemented in Java and Node JS. Client is uploaded with Node JS implementation.    
-Repository link : 
+Repository link : https://github.com/pavanpkp33/SocialNetwork-Node.js 
 **Also note that Groups feature is not implemented with Java.**
 
 ## Prerequisites
