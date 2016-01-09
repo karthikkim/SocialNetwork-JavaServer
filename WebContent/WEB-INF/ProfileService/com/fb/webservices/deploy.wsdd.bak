@@ -1,0 +1,37 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from ProfileService WSDL service -->
+
+  <service name="Profile" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://webservices.fb.com"/>
+      <parameter name="wsdlServiceElement" value="ProfileService"/>
+      <parameter name="schemaQualified" value="http://webservices.fb.com"/>
+      <parameter name="wsdlServicePort" value="Profile"/>
+      <parameter name="className" value="com.fb.webservices.ProfileSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="Profile"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="postStatusService" qname="operNS:postStatusService" xmlns:operNS="http://webservices.fb.com" returnQName="retNS:postStatusServiceReturn" xmlns:retNS="http://webservices.fb.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:uid" xmlns:pns="http://webservices.fb.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:message" xmlns:pns="http://webservices.fb.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:record_time" xmlns:pns="http://webservices.fb.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getProfileService" qname="operNS:getProfileService" xmlns:operNS="http://webservices.fb.com" returnQName="retNS:getProfileServiceReturn" xmlns:retNS="http://webservices.fb.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:id" xmlns:pns="http://webservices.fb.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getStatusService" qname="operNS:getStatusService" xmlns:operNS="http://webservices.fb.com" returnQName="retNS:getStatusServiceReturn" xmlns:retNS="http://webservices.fb.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:uid" xmlns:pns="http://webservices.fb.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="postStatusService getProfileService getStatusService"/>
+
+  </service>
+</deployment>

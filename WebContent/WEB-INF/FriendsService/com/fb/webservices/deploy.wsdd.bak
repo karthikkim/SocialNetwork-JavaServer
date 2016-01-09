@@ -1,0 +1,48 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from FriendsService WSDL service -->
+
+  <service name="Friends" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://webservices.fb.com"/>
+      <parameter name="wsdlServiceElement" value="FriendsService"/>
+      <parameter name="schemaQualified" value="http://webservices.fb.com"/>
+      <parameter name="wsdlServicePort" value="Friends"/>
+      <parameter name="className" value="com.fb.webservices.FriendsSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="Friends"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="myFriendsService" qname="operNS:myFriendsService" xmlns:operNS="http://webservices.fb.com" returnQName="retNS:myFriendsServiceReturn" xmlns:retNS="http://webservices.fb.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:id" xmlns:pns="http://webservices.fb.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="sendRequestService" qname="operNS:sendRequestService" xmlns:operNS="http://webservices.fb.com" returnQName="retNS:sendRequestServiceReturn" xmlns:retNS="http://webservices.fb.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:uid" xmlns:pns="http://webservices.fb.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:fid" xmlns:pns="http://webservices.fb.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:status" xmlns:pns="http://webservices.fb.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getMembersService" qname="operNS:getMembersService" xmlns:operNS="http://webservices.fb.com" returnQName="retNS:getMembersServiceReturn" xmlns:retNS="http://webservices.fb.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:id" xmlns:pns="http://webservices.fb.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="activeRequestService" qname="operNS:activeRequestService" xmlns:operNS="http://webservices.fb.com" returnQName="retNS:activeRequestServiceReturn" xmlns:retNS="http://webservices.fb.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:id" xmlns:pns="http://webservices.fb.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="acceptRequestService" qname="operNS:acceptRequestService" xmlns:operNS="http://webservices.fb.com" returnQName="retNS:acceptRequestServiceReturn" xmlns:retNS="http://webservices.fb.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:uid" xmlns:pns="http://webservices.fb.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:fid" xmlns:pns="http://webservices.fb.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="deleteFriendService" qname="operNS:deleteFriendService" xmlns:operNS="http://webservices.fb.com" returnQName="retNS:deleteFriendServiceReturn" xmlns:retNS="http://webservices.fb.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:uid" xmlns:pns="http://webservices.fb.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:fid" xmlns:pns="http://webservices.fb.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="deleteFriendService acceptRequestService sendRequestService getMembersService activeRequestService myFriendsService"/>
+
+  </service>
+</deployment>

@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://webservices.fb.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://webservices.fb.com" xmlns:intf="http://webservices.fb.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://webservices.fb.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="postStatusService">
+    <complexType>
+     <sequence>
+      <element name="uid" type="xsd:string"/>
+      <element name="message" type="xsd:string"/>
+      <element name="record_time" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="postStatusServiceResponse">
+    <complexType>
+     <sequence>
+      <element name="postStatusServiceReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getProfileService">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getProfileServiceResponse">
+    <complexType>
+     <sequence>
+      <element name="getProfileServiceReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getStatusService">
+    <complexType>
+     <sequence>
+      <element name="uid" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getStatusServiceResponse">
+    <complexType>
+     <sequence>
+      <element name="getStatusServiceReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getProfileServiceResponse">
+
+      <wsdl:part element="impl:getProfileServiceResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getProfileServiceRequest">
+
+      <wsdl:part element="impl:getProfileService" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="postStatusServiceResponse">
+
+      <wsdl:part element="impl:postStatusServiceResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="postStatusServiceRequest">
+
+      <wsdl:part element="impl:postStatusService" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getStatusServiceRequest">
+
+      <wsdl:part element="impl:getStatusService" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getStatusServiceResponse">
+
+      <wsdl:part element="impl:getStatusServiceResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Profile">
+
+      <wsdl:operation name="postStatusService">
+
+         <wsdl:input message="impl:postStatusServiceRequest" name="postStatusServiceRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:postStatusServiceResponse" name="postStatusServiceResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getProfileService">
+
+         <wsdl:input message="impl:getProfileServiceRequest" name="getProfileServiceRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getProfileServiceResponse" name="getProfileServiceResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getStatusService">
+
+         <wsdl:input message="impl:getStatusServiceRequest" name="getStatusServiceRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getStatusServiceResponse" name="getStatusServiceResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="ProfileSoapBinding" type="impl:Profile">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="postStatusService">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="postStatusServiceRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="postStatusServiceResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getProfileService">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getProfileServiceRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getProfileServiceResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getStatusService">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getStatusServiceRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getStatusServiceResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="ProfileService">
+
+      <wsdl:port binding="impl:ProfileSoapBinding" name="Profile">
+
+         <wsdlsoap:address location="http://localhost:8080/FacebookServer/services/Profile"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

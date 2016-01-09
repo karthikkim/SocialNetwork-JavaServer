@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from IndexService WSDL service -->
+
+  <service name="Index" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://webservices.fb.com"/>
+      <parameter name="wsdlServiceElement" value="IndexService"/>
+      <parameter name="schemaQualified" value="http://webservices.fb.com"/>
+      <parameter name="wsdlServicePort" value="Index"/>
+      <parameter name="className" value="com.fb.webservices.Index"/>
+      <parameter name="wsdlPortType" value="Index"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://webservices.fb.com" xmlns:retNS="http://webservices.fb.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="registerService" qname="operNS:registerService" returnQName="retNS:registerServiceReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://webservices.fb.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:firstname" type="tns:string"/>
+        <parameter xmlns:pns="http://webservices.fb.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:lastname" type="tns:string"/>
+        <parameter xmlns:pns="http://webservices.fb.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:email" type="tns:string"/>
+        <parameter xmlns:pns="http://webservices.fb.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:password" type="tns:string"/>
+        <parameter xmlns:pns="http://webservices.fb.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:dob" type="tns:string"/>
+        <parameter xmlns:pns="http://webservices.fb.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:sex" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://webservices.fb.com" xmlns:retNS="http://webservices.fb.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="loginService" qname="operNS:loginService" returnQName="retNS:loginServiceReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://webservices.fb.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:username" type="tns:string"/>
+        <parameter xmlns:pns="http://webservices.fb.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:password" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://webservices.fb.com" xmlns:retNS="http://webservices.fb.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="updateService" qname="operNS:updateService" returnQName="retNS:updateServiceReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://webservices.fb.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:about" type="tns:string"/>
+        <parameter xmlns:pns="http://webservices.fb.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:interest" type="tns:string"/>
+        <parameter xmlns:pns="http://webservices.fb.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:education" type="tns:string"/>
+        <parameter xmlns:pns="http://webservices.fb.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:work" type="tns:string"/>
+        <parameter xmlns:pns="http://webservices.fb.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:relationship" type="tns:string"/>
+        <parameter xmlns:pns="http://webservices.fb.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:id" type="tns:string"/>
+      </operation>
+      <parameter name="allowedMethods" value="registerService updateService loginService"/>
+
+  </service>
+</deployment>

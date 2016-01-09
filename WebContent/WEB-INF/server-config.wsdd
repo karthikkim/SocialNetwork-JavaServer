@@ -1,0 +1,135 @@
+<ns1:deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java" xmlns:ns1="http://xml.apache.org/axis/wsdd/">
+ <ns1:globalConfiguration>
+  <ns1:parameter name="sendMultiRefs" value="true"/>
+  <ns1:parameter name="disablePrettyXML" value="true"/>
+  <ns1:parameter name="adminPassword" value="admin"/>
+  <ns1:parameter name="attachments.Directory" value="C:\Users\Pkp\Mars\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\FacebookServer\WEB-INF\attachments"/>
+  <ns1:parameter name="dotNetSoapEncFix" value="true"/>
+  <ns1:parameter name="enableNamespacePrefixOptimization" value="false"/>
+  <ns1:parameter name="sendXMLDeclaration" value="true"/>
+  <ns1:parameter name="sendXsiTypes" value="true"/>
+  <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
+  <ns1:requestFlow>
+   <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
+    <ns1:parameter name="scope" value="session"/>
+   </ns1:handler>
+   <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
+    <ns1:parameter name="scope" value="request"/>
+    <ns1:parameter name="extension" value=".jwr"/>
+   </ns1:handler>
+  </ns1:requestFlow>
+ </ns1:globalConfiguration>
+ <ns1:handler name="URLMapper" type="java:org.apache.axis.handlers.http.URLMapper"/>
+ <ns1:handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"/>
+ <ns1:handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder"/>
+ <ns1:service name="AdminService" provider="java:MSG">
+  <ns1:parameter name="allowedMethods" value="AdminService"/>
+  <ns1:parameter name="enableRemoteAdmin" value="false"/>
+  <ns1:parameter name="className" value="org.apache.axis.utils.Admin"/>
+  <ns1:namespace>http://xml.apache.org/axis/wsdd/</ns1:namespace>
+ </ns1:service>
+ <ns1:service name="Version" provider="java:RPC">
+  <ns1:parameter name="allowedMethods" value="getVersion"/>
+  <ns1:parameter name="className" value="org.apache.axis.Version"/>
+ </ns1:service>
+ <ns1:service name="Friends" provider="java:RPC" style="wrapped" use="literal">
+  <ns2:operation name="myFriendsService" qname="ns1:myFriendsService" returnQName="ns1:myFriendsServiceReturn" returnType="xsd:string" soapAction="" xmlns:ns1="http://webservices.fb.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://xml.apache.org/axis/wsdd/">
+   <ns2:parameter qname="ns1:id" type="xsd:string"/>
+  </ns2:operation>
+  <ns1:operation name="sendRequestService" qname="ns2:sendRequestService" returnQName="ns2:sendRequestServiceReturn" returnType="xsd:string" soapAction="" xmlns:ns2="http://webservices.fb.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns2:uid" type="xsd:string"/>
+   <ns1:parameter qname="ns2:fid" type="xsd:string"/>
+   <ns1:parameter qname="ns2:status" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="getMembersService" qname="ns3:getMembersService" returnQName="ns3:getMembersServiceReturn" returnType="xsd:string" soapAction="" xmlns:ns3="http://webservices.fb.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns3:id" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="activeRequestService" qname="ns4:activeRequestService" returnQName="ns4:activeRequestServiceReturn" returnType="xsd:string" soapAction="" xmlns:ns4="http://webservices.fb.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns4:id" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="acceptRequestService" qname="ns5:acceptRequestService" returnQName="ns5:acceptRequestServiceReturn" returnType="xsd:string" soapAction="" xmlns:ns5="http://webservices.fb.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns5:uid" type="xsd:string"/>
+   <ns1:parameter qname="ns5:fid" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="deleteFriendService" qname="ns6:deleteFriendService" returnQName="ns6:deleteFriendServiceReturn" returnType="xsd:string" soapAction="" xmlns:ns6="http://webservices.fb.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns6:uid" type="xsd:string"/>
+   <ns1:parameter qname="ns6:fid" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="deleteFriendService acceptRequestService sendRequestService getMembersService activeRequestService myFriendsService"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="Friends"/>
+  <ns1:parameter name="className" value="com.fb.webservices.Friends"/>
+  <ns1:parameter name="wsdlServicePort" value="Friends"/>
+  <ns1:parameter name="schemaQualified" value="http://webservices.fb.com"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://webservices.fb.com"/>
+  <ns1:parameter name="wsdlServiceElement" value="FriendsService"/>
+ </ns1:service>
+ <ns1:service name="Index" provider="java:RPC" style="wrapped" use="literal">
+  <ns1:operation name="registerService" qname="ns7:registerService" returnQName="ns7:registerServiceReturn" returnType="xsd:string" soapAction="" xmlns:ns7="http://webservices.fb.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns7:firstname" type="xsd:string"/>
+   <ns1:parameter qname="ns7:lastname" type="xsd:string"/>
+   <ns1:parameter qname="ns7:email" type="xsd:string"/>
+   <ns1:parameter qname="ns7:password" type="xsd:string"/>
+   <ns1:parameter qname="ns7:dob" type="xsd:string"/>
+   <ns1:parameter qname="ns7:sex" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="loginService" qname="ns8:loginService" returnQName="ns8:loginServiceReturn" returnType="xsd:string" soapAction="" xmlns:ns8="http://webservices.fb.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns8:username" type="xsd:string"/>
+   <ns1:parameter qname="ns8:password" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="updateService" qname="ns9:updateService" returnQName="ns9:updateServiceReturn" returnType="xsd:string" soapAction="" xmlns:ns9="http://webservices.fb.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns9:about" type="xsd:string"/>
+   <ns1:parameter qname="ns9:interest" type="xsd:string"/>
+   <ns1:parameter qname="ns9:education" type="xsd:string"/>
+   <ns1:parameter qname="ns9:work" type="xsd:string"/>
+   <ns1:parameter qname="ns9:relationship" type="xsd:string"/>
+   <ns1:parameter qname="ns9:id" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="registerService updateService loginService"/>
+  <ns1:parameter name="wsdlPortType" value="Index"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="schemaQualified" value="http://webservices.fb.com"/>
+  <ns1:parameter name="wsdlServicePort" value="Index"/>
+  <ns1:parameter name="className" value="com.fb.webservices.Index"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://webservices.fb.com"/>
+  <ns1:parameter name="wsdlServiceElement" value="IndexService"/>
+ </ns1:service>
+ <ns1:service name="Profile" provider="java:RPC" style="wrapped" use="literal">
+  <ns1:operation name="postStatusService" qname="ns10:postStatusService" returnQName="ns10:postStatusServiceReturn" returnType="xsd:string" soapAction="" xmlns:ns10="http://webservices.fb.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns10:uid" type="xsd:string"/>
+   <ns1:parameter qname="ns10:message" type="xsd:string"/>
+   <ns1:parameter qname="ns10:record_time" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="getProfileService" qname="ns11:getProfileService" returnQName="ns11:getProfileServiceReturn" returnType="xsd:string" soapAction="" xmlns:ns11="http://webservices.fb.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns11:id" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="getStatusService" qname="ns12:getStatusService" returnQName="ns12:getStatusServiceReturn" returnType="xsd:string" soapAction="" xmlns:ns12="http://webservices.fb.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns12:uid" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="postStatusService getProfileService getStatusService"/>
+  <ns1:parameter name="wsdlPortType" value="Profile"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="schemaQualified" value="http://webservices.fb.com"/>
+  <ns1:parameter name="wsdlServicePort" value="Profile"/>
+  <ns1:parameter name="className" value="com.fb.webservices.Profile"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://webservices.fb.com"/>
+  <ns1:parameter name="wsdlServiceElement" value="ProfileService"/>
+ </ns1:service>
+ <ns1:transport name="http">
+  <ns1:requestFlow>
+   <ns1:handler type="URLMapper"/>
+   <ns1:handler type="java:org.apache.axis.handlers.http.HTTPAuthHandler"/>
+  </ns1:requestFlow>
+  <ns1:parameter name="qs:list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <ns1:parameter name="qs:wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+  <ns1:parameter name="qs.list" value="org.apache.axis.transport.http.QSListHandler"/>
+  <ns1:parameter name="qs.method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <ns1:parameter name="qs:method" value="org.apache.axis.transport.http.QSMethodHandler"/>
+  <ns1:parameter name="qs.wsdl" value="org.apache.axis.transport.http.QSWSDLHandler"/>
+ </ns1:transport>
+ <ns1:transport name="local">
+  <ns1:responseFlow>
+   <ns1:handler type="LocalResponder"/>
+  </ns1:responseFlow>
+ </ns1:transport>
+</ns1:deployment>

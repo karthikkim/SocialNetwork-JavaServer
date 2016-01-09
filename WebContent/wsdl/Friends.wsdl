@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://webservices.fb.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://webservices.fb.com" xmlns:intf="http://webservices.fb.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://webservices.fb.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="myFriendsService">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="myFriendsServiceResponse">
+    <complexType>
+     <sequence>
+      <element name="myFriendsServiceReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="sendRequestService">
+    <complexType>
+     <sequence>
+      <element name="uid" type="xsd:string"/>
+      <element name="fid" type="xsd:string"/>
+      <element name="status" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="sendRequestServiceResponse">
+    <complexType>
+     <sequence>
+      <element name="sendRequestServiceReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getMembersService">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getMembersServiceResponse">
+    <complexType>
+     <sequence>
+      <element name="getMembersServiceReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="activeRequestService">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="activeRequestServiceResponse">
+    <complexType>
+     <sequence>
+      <element name="activeRequestServiceReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="acceptRequestService">
+    <complexType>
+     <sequence>
+      <element name="uid" type="xsd:string"/>
+      <element name="fid" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="acceptRequestServiceResponse">
+    <complexType>
+     <sequence>
+      <element name="acceptRequestServiceReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deleteFriendService">
+    <complexType>
+     <sequence>
+      <element name="uid" type="xsd:string"/>
+      <element name="fid" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deleteFriendServiceResponse">
+    <complexType>
+     <sequence>
+      <element name="deleteFriendServiceReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="deleteFriendServiceRequest">
+
+      <wsdl:part element="impl:deleteFriendService" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="sendRequestServiceResponse">
+
+      <wsdl:part element="impl:sendRequestServiceResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="acceptRequestServiceRequest">
+
+      <wsdl:part element="impl:acceptRequestService" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="activeRequestServiceRequest">
+
+      <wsdl:part element="impl:activeRequestService" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="deleteFriendServiceResponse">
+
+      <wsdl:part element="impl:deleteFriendServiceResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="activeRequestServiceResponse">
+
+      <wsdl:part element="impl:activeRequestServiceResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="acceptRequestServiceResponse">
+
+      <wsdl:part element="impl:acceptRequestServiceResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="myFriendsServiceResponse">
+
+      <wsdl:part element="impl:myFriendsServiceResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getMembersServiceRequest">
+
+      <wsdl:part element="impl:getMembersService" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getMembersServiceResponse">
+
+      <wsdl:part element="impl:getMembersServiceResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="myFriendsServiceRequest">
+
+      <wsdl:part element="impl:myFriendsService" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="sendRequestServiceRequest">
+
+      <wsdl:part element="impl:sendRequestService" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Friends">
+
+      <wsdl:operation name="myFriendsService">
+
+         <wsdl:input message="impl:myFriendsServiceRequest" name="myFriendsServiceRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:myFriendsServiceResponse" name="myFriendsServiceResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="sendRequestService">
+
+         <wsdl:input message="impl:sendRequestServiceRequest" name="sendRequestServiceRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:sendRequestServiceResponse" name="sendRequestServiceResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getMembersService">
+
+         <wsdl:input message="impl:getMembersServiceRequest" name="getMembersServiceRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getMembersServiceResponse" name="getMembersServiceResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="activeRequestService">
+
+         <wsdl:input message="impl:activeRequestServiceRequest" name="activeRequestServiceRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:activeRequestServiceResponse" name="activeRequestServiceResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="acceptRequestService">
+
+         <wsdl:input message="impl:acceptRequestServiceRequest" name="acceptRequestServiceRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:acceptRequestServiceResponse" name="acceptRequestServiceResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteFriendService">
+
+         <wsdl:input message="impl:deleteFriendServiceRequest" name="deleteFriendServiceRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:deleteFriendServiceResponse" name="deleteFriendServiceResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="FriendsSoapBinding" type="impl:Friends">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="myFriendsService">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="myFriendsServiceRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="myFriendsServiceResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="sendRequestService">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="sendRequestServiceRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="sendRequestServiceResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getMembersService">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getMembersServiceRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getMembersServiceResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="activeRequestService">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="activeRequestServiceRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="activeRequestServiceResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="acceptRequestService">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="acceptRequestServiceRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="acceptRequestServiceResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deleteFriendService">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="deleteFriendServiceRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="deleteFriendServiceResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="FriendsService">
+
+      <wsdl:port binding="impl:FriendsSoapBinding" name="Friends">
+
+         <wsdlsoap:address location="http://localhost:8080/FacebookServer/services/Friends"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

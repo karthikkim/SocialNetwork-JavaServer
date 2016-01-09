@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://webservices.fb.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://webservices.fb.com" xmlns:intf="http://webservices.fb.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://webservices.fb.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="registerService">
+    <complexType>
+     <sequence>
+      <element name="firstname" type="xsd:string"/>
+      <element name="lastname" type="xsd:string"/>
+      <element name="email" type="xsd:string"/>
+      <element name="password" type="xsd:string"/>
+      <element name="dob" type="xsd:string"/>
+      <element name="sex" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="registerServiceResponse">
+    <complexType>
+     <sequence>
+      <element name="registerServiceReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="loginService">
+    <complexType>
+     <sequence>
+      <element name="username" type="xsd:string"/>
+      <element name="password" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="loginServiceResponse">
+    <complexType>
+     <sequence>
+      <element name="loginServiceReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateService">
+    <complexType>
+     <sequence>
+      <element name="about" type="xsd:string"/>
+      <element name="interest" type="xsd:string"/>
+      <element name="education" type="xsd:string"/>
+      <element name="work" type="xsd:string"/>
+      <element name="relationship" type="xsd:string"/>
+      <element name="id" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="updateServiceResponse">
+    <complexType>
+     <sequence>
+      <element name="updateServiceReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="loginServiceRequest">
+
+      <wsdl:part element="impl:loginService" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateServiceResponse">
+
+      <wsdl:part element="impl:updateServiceResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="loginServiceResponse">
+
+      <wsdl:part element="impl:loginServiceResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="updateServiceRequest">
+
+      <wsdl:part element="impl:updateService" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="registerServiceResponse">
+
+      <wsdl:part element="impl:registerServiceResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="registerServiceRequest">
+
+      <wsdl:part element="impl:registerService" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Index">
+
+      <wsdl:operation name="registerService">
+
+         <wsdl:input message="impl:registerServiceRequest" name="registerServiceRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:registerServiceResponse" name="registerServiceResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="loginService">
+
+         <wsdl:input message="impl:loginServiceRequest" name="loginServiceRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:loginServiceResponse" name="loginServiceResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateService">
+
+         <wsdl:input message="impl:updateServiceRequest" name="updateServiceRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:updateServiceResponse" name="updateServiceResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="IndexSoapBinding" type="impl:Index">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="registerService">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="registerServiceRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="registerServiceResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="loginService">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="loginServiceRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="loginServiceResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="updateService">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="updateServiceRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="updateServiceResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="IndexService">
+
+      <wsdl:port binding="impl:IndexSoapBinding" name="Index">
+
+         <wsdlsoap:address location="http://localhost:8080/FacebookServer/services/Index"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
