@@ -2,7 +2,7 @@ Welcome to the SocialNetwork-JavaServer wiki!
 
 ***
 
-![Mpower Logo](http://pavankp.website/mPower_black.png)
+
 
 # A Simple implementation of a social networking application using JAX WS SOAP webservices :+1: .
 
